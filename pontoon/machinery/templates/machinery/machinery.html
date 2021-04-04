@@ -2,9 +2,9 @@
 {% import 'heading.html' as Heading %}
 {% import 'teams/widgets/team_selector.html' as team_selector %}
 
-{% block title %}Machinery{% endblock %}
+{% block title %}기계 번역{% endblock %}
 
-{% block class %}machinery{% endblock %}
+{% block class %}기계 번역{% endblock %}
 
 {% block before %}
 <!-- Server data -->
@@ -19,7 +19,7 @@
 {% endblock %}
 
 {% block heading %}
-  {{ Heading.heading(title='Machinery', subtitle='Metasearch engine for translations') }}
+  {{ Heading.heading(title='기계 번역', subtitle=' 번역에 대한 메타서치 엔진(구글 번역기, Bing 번역기 등)') }}
 {% endblock %}
 
 {% block bottom %}
@@ -29,7 +29,7 @@
       <div id="search" class="search-wrapper big clearfix">
         <div class="icon fa fa-search"></div>
         <div class="icon fa fa-cog fa-spin"></div>
-        <input type="search" autocomplete="off" autofocus placeholder="Type and press Enter to search">
+        <input type="search" autocomplete="off" autofocus placeholder="글자를 넣고 엔터를 쳐서 검색하세요">
       </div>
 
       {{ team_selector.locale(locales, locale) }}

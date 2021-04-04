@@ -12,10 +12,10 @@
   </h1>
 
   <div class="controls clearfix">
-    <button type="submit" class="button active">Save strings</button>
-    <a href="{{ url('pontoon.admin.project', project.slug) }}" class="cancel">Back to Project</a>
+    <button type="submit" class="button active">줄 저장</button>
+    <a href="{{ url('pontoon.admin.project', project.slug) }}" class="cancel">프로젝트로 돌아가기</a>
     {% if project_has_strings %}
-    <a href="#" class="add-inline" data-type="entity">Add New String</a>
+    <a href="#" class="add-inline" data-type="entity">새로운 줄 추가</a>
     {% endif %}
   </div>
 
@@ -52,15 +52,15 @@
   {% else %}
 
   <p>
-    There are currently no strings for {{ project }}. You can add new strings using the following form.
-    Enter one new string per line.
+    현재 {{ project }}에 기호열이 하나도 없습니다. 아래의 양식을 사용하여 새 기호열을 추가할수 있습니다.
+    한 기호열당 한 줄 씩입니다.
   </p>
   <textarea name="new_strings" class="strings-source" placeholder="Enter new strings"></textarea>
   {% endif %}
 
   <div class="controls clearfix">
-    <button type="submit" class="button active">Save strings</button>
-    <a href="{{ url('pontoon.admin.project', project.slug) }}" class="cancel">Back to Project</a>
+    <button type="submit" class="button active">줄 저장</button>
+    <a href="{{ url('pontoon.admin.project', project.slug) }}" class="cancel">프로젝트로 돌아가기</a>
     {% if project_has_strings %}
     <a href="#" class="add-inline" data-type="entity">Add New String</a>
     {% endif %}
