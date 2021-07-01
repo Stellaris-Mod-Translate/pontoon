@@ -6,7 +6,7 @@ from pontoon.sync.formats.base import ParsedResource
 from pontoon.sync.vcs.models import VCSTranslation
 
 
-YAML_REGEX = re.compile('([a-zA-Z0-9_\.]+):\s\"(.*)\"|(#.*#)')
+YAML_REGEX = re.compile('([a-zA-Z0-9_\.]+):[0-9]*\s\"(.*)\"|(#.*#*)')
 
 class YamlEntity(VCSTranslation):
     def __init__(self, key, string, order=0):
