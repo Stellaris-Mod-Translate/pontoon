@@ -13,6 +13,7 @@ from pontoon.sync.formats import (
     po,
     silme,
     xliff,
+    yaml
 )
 
 # To add support for a new resource format, add an entry to this dict
@@ -31,6 +32,7 @@ SUPPORTED_FORMAT_PARSERS = {
     ".xlf": xliff.parse,
     ".xliff": xliff.parse,
     ".xml": compare_locales.parse,
+    ".yml":yaml.parse
 }
 
 

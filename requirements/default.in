@@ -43,6 +43,7 @@ python-dateutil==2.8.1
 python-dotenv==0.17.0
 python-levenshtein==0.12.2
 pytz==2019.3
+pyyaml==5.3.1
 raygun4py==4.3.0
 sacremoses==0.0.43
 translate-toolkit==3.3.2

@@ -2037,6 +2037,7 @@ class Resource(models.Model):
         XLF = "xlf", "xliff"
         XLIFF = "xliff", "xliff"
         XML = "xml", "xml"
+        YAML = "yml", "yaml"
 
     format = models.CharField(
         "Format", max_length=20, blank=True, choices=Format.choices
@@ -2055,6 +2056,7 @@ class Resource(models.Model):
         Format.JSON,
         Format.PROPERTIES,
         Format.XML,
+        Format.YAML
     }
 
     # Formats that allow empty translations
@@ -2064,6 +2066,7 @@ class Resource(models.Model):
         Format.INI,
         Format.PROPERTIES,
         Format.XML,
+        Format.YAML
     }
 
     objects = ResourceQuerySet.as_manager()
