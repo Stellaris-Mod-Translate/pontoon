@@ -67,8 +67,8 @@ class YamlResource(ParsedResource):
         file_string = ''
         for entity in self.translations:
             try:
-                if entity.strings[None] == entity.key:
-                    file_string += "\n" + entity.key + "\n\n"
+                if entity.key[0] == '#':
+                    file_string += "\n" + entity.strings[None] + "\n\n"
                 else:
                      file_string += entity.key + ': \"' + entity.strings[None] + "\"\n"
             except KeyError:
