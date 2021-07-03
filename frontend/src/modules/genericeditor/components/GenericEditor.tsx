@@ -6,6 +6,7 @@ import * as entities from 'core/entities';
 import * as plural from 'core/plural';
 
 import GenericTranslationForm from './GenericTranslationForm';
+import StellarisView from 'modules/entitydetails/components/StellarisView';
 
 /**
  * Hook to update the editor content whenever the entity changes.
@@ -59,6 +60,8 @@ export default function GenericEditor(): null | React.ReactElement<any> {
     const clearEditor = editor.useClearEditor();
     const copyOriginalIntoEditor = editor.useCopyOriginalIntoEditor();
     const sendTranslation = editor.useSendTranslation();
+    const user = useSelector((state) => state.user);
+    const settings = user.settings;
 
     const translation = useSelector((state) => state.editor.translation);
     const entity = useSelector((state) =>
@@ -85,6 +88,12 @@ export default function GenericEditor(): null | React.ReactElement<any> {
                 sendTranslation={sendTranslation}
                 updateTranslation={updateTranslation}
             />
+            {settings.stellarisFormats ? (
+            <StellarisView
+                entity={entity}
+                user={user}
+                content={translation}
+            />) : ('')}
             <editor.EditorMenu
                 translationLengthHook={
                     <editor.TranslationLength

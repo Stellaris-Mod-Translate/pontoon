@@ -11,6 +11,10 @@
     font-size: 100%;
 }
 
+.entity.stellaris.view {
+    padding: 10px 25px 10px 10px;
+}
+
 .entity.checked,
 .entity.selected,
 .entity:hover {

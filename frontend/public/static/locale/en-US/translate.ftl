@@ -142,8 +142,8 @@ editor-EditorSettings--force-suggestions = <glyph></glyph>Make Suggestions
 
 editor-EditorSettings--change-all = Change All Settings
 
-editor-EditorSettings--stellaris-formats = <glyph></glyph>Stellaris Color Format
-    .title = Apply Stellaris Color Format
+editor-EditorSettings--stellaris-formats = <glyph></glyph>Stellaris Game Format
+    .title = Apply Stellaris Game Format
 
 
 ## Editor Failed Checks

@@ -87,6 +87,7 @@ export default function Translation(
                     <ConcordanceSearch
                         sourceString={sourceString}
                         translation={translation}
+                        settings={settings}
                     />
                 ) : (
                     <>

@@ -5,18 +5,19 @@ import { GenericTranslation } from 'core/translation';
 import TranslationMemory from './source/TranslationMemory';
 
 import type { MachineryTranslation } from 'core/api';
+import { Settings } from 'core/user';
 
 type Props = {
     sourceString: string;
     translation: MachineryTranslation;
+    settings: Settings;
 };
 
 export default function ConcordanceSearch(
     props: Props,
 ): React.ReactElement<any> {
     const locale = useSelector((state) => state.locale);
-    const settings = useSelector((state) => state.user.settings);
-    const { sourceString, translation } = props;
+    const { sourceString, translation, settings } = props;
 
     const createProjectList = () => {
         if (!translation.projectNames) {

@@ -4,7 +4,7 @@ const replaceNewline = {
     rule: '\\n',
     tag: (): React.ReactElement<React.ElementType> => {
         return (
-            <p></p>
+            <br/>
         );
     },
 };
