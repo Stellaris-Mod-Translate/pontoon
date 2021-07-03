@@ -142,6 +142,9 @@ editor-EditorSettings--force-suggestions = <glyph></glyph>Make Suggestions
 
 editor-EditorSettings--change-all = Change All Settings
 
+editor-EditorSettings--stellaris-formats = <glyph></glyph>Stellaris Color Format
+    .title = Apply Stellaris Color Format
+
 
 ## Editor Failed Checks
 ## Renders the failed checks popup
@@ -509,6 +512,8 @@ notification--tt-checks-enabled = Translate Toolkit Checks enabled
 notification--tt-checks-disabled = Translate Toolkit Checks disabled
 notification--make-suggestions-enabled = Make Suggestions enabled
 notification--make-suggestions-disabled = Make Suggestions disabled
+notification--stellaris-formats-enabled = Stellaris Format Enabled
+notification--stellaris-formats-disabled = Stellaris Format Disabled
 notification--entity-not-found = Can’t load specified string
 notification--string-link-copied = Link copied to clipboard
 notification--comment-added = Comment added
@@ -583,6 +588,10 @@ placeable-parser-xmlEntity =
     .title = XML entity
 placeable-parser-xmlTag =
     .title = XML tag
+placeable-parser-stellarisColors=
+    .title = Stellaris Color Tag
+placeable-parser-stellarisBracketCommand=
+    .title = Stellaris Bracket Command
 
 
 ## Project menu

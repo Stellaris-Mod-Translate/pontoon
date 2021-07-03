@@ -30,6 +30,7 @@ export function updateTourStatus(step: number): (...args: Array<any>) => any {
 export type Settings = {
     runQualityChecks?: boolean;
     forceSuggestions?: boolean;
+    stellarisFormats?: boolean;
 };
 
 /**
@@ -83,6 +84,12 @@ function _getOperationNotif(setting, value) {
     }
     if (setting === 'forceSuggestions' && !value) {
         return notification.messages.SUGGESTIONS_DISABLED;
+    }
+    if(setting === 'stellarisFormats' && value){
+        return notification.messages.STELLARIS_FORMATS_ENABLED
+    }
+    if(setting === 'stellarisFormats' && !value){
+        return notification.messages.STELLARIS_FORMATS_DISABLED
     }
 
     throw new Error('Unsupported operation on setting: ' + setting);

@@ -6,12 +6,14 @@ import { getMarker } from 'core/term';
 import type { Entity } from 'core/api';
 import type { Locale } from 'core/locale';
 import type { TermState } from 'core/term';
+import type { Settings } from 'core/user'
 
 type Props = {
     readonly entity: Entity;
     readonly locale: Locale;
     readonly pluralForm: number;
     readonly terms: TermState;
+    readonly settings: Settings;
     readonly handleClickOnPlaceable: (
         event: React.MouseEvent<HTMLParagraphElement>,
     ) => void;
@@ -58,8 +60,9 @@ export default function GenericOriginalString(
     props: Props,
 ): React.ReactElement<any> {
     const { title, original } = getOriginalContent(props);
+    const settings = props.settings;
 
-    const TermsAndPlaceablesMarker = getMarker(props.terms);
+    const TermsAndPlaceablesMarker = getMarker(props.terms, false, settings);
 
     return (
         <>

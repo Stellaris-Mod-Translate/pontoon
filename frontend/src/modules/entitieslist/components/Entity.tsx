@@ -6,6 +6,7 @@ import { TranslationProxy } from 'core/translation';
 
 import type { Entity as EntityType } from 'core/api';
 import type { Locale } from 'core/locale';
+import { Settings } from 'core/user';
 
 type Props = {
     checkedForBatchEditing: boolean;
@@ -17,6 +18,7 @@ type Props = {
     search: string | null | undefined;
     selected: boolean;
     selectEntity: (...args: Array<any>) => any;
+    settings: Settings;
 };
 
 /**
@@ -113,6 +115,7 @@ export default class Entity extends React.Component<Props> {
             locale,
             search,
             selected,
+            settings
         } = this.props;
 
         const classSelected = selected ? 'selected' : '';
@@ -137,6 +140,7 @@ export default class Entity extends React.Component<Props> {
                             content={entity.original}
                             format={entity.format}
                             search={search}
+                            settings={settings}
                         />
                     </p>
                     <p
@@ -149,6 +153,7 @@ export default class Entity extends React.Component<Props> {
                             content={entity.translation[0].string}
                             format={entity.format}
                             search={search}
+                            settings={settings}
                         />
                     </p>
                 </div>

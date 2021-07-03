@@ -72,7 +72,24 @@ export function EditorSettings({
                     <a href='/settings/'>{'Change All Settings'}</a>
                 </Localized>
             </li>
-        </ul>
+            <li className='horizontal-separator'></li>
+            <Localized 
+                id='editor-EditorSettings--stellaris-formats'
+                attrs={{ title: true }}
+                elems={{ glyph: <i className='fa fa-fw' /> }}
+            >
+                <li
+                className={
+                    'check-box' +
+                    (settings.stellarisFormats ? ' enabled' : '')
+                }
+                title='Apply Stellaris Game Format'
+                onClick={() => toggleSetting('stellarisFormats')}
+                >
+                    {'<glyph></glyph>Stellaris Game Format'}
+                </li>
+            </Localized>
+        </ul>                    
     );
 }
 

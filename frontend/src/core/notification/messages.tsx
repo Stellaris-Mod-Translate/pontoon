@@ -131,6 +131,22 @@ const messages: Record<string, NotificationMessage> = {
         ),
         type: 'info',
     },
+    STELLARIS_FORMATS_ENABLED:{
+        content:(
+            <Localized id='notification--stellaris-format-enabled'>
+                Stellaris Format Enabled
+            </Localized>
+        ),
+        type:'info'
+    },
+    STELLARIS_FORMATS_DISABLED:{
+        content:(
+            <Localized id='notification--stellaris-format-disabled'>
+                Stellaris Format Disabled
+            </Localized>
+        ),
+        type:'info'
+    },
     FTL_NOT_SUPPORTED_RICH_EDITOR: {
         content: (
             <Localized id='notification--ftl-not-supported-rich-editor'>

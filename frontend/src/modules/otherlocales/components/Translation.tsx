@@ -11,12 +11,14 @@ import * as editor from 'core/editor';
 import * as entities from 'core/entities';
 import type { Entity, OtherLocaleTranslation } from 'core/api';
 import type { NavigationParams } from 'core/navigation';
+import { Settings } from 'core/user';
 
 type Props = {
     entity: Entity;
     translation: OtherLocaleTranslation;
     parameters: NavigationParams;
     index: number;
+    settings: Settings;
 };
 
 /**
@@ -34,6 +36,7 @@ export default function Translation(
     const isReadOnlyEditor = useSelector((state) =>
         entities.selectors.isReadOnlyEditor(state),
     );
+    const settings = useSelector((state) => state.user.settings);
 
     let className = 'translation';
     if (isReadOnlyEditor) {
@@ -118,6 +121,7 @@ export default function Translation(
                     <TranslationProxy
                         content={translation.translation}
                         format={entity.format}
+                        settings={settings}
                     />
                 </p>
             </li>

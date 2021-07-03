@@ -491,6 +491,7 @@ export class TranslationBase extends React.Component<InternalProps, State> {
                                             : null
                                     }
                                     format={entity.format}
+                                    settings={user.settings}
                                 />
                             </p>
                         </div>

@@ -30,6 +30,7 @@ type Props = {
     locale: Locale;
     parameters: NavigationParams;
     router: Record<string, any>;
+    settings: user.Settings
 };
 
 type InternalProps = Props & {
@@ -370,6 +371,7 @@ export class EntitiesListBase extends React.Component<InternalProps> {
                                         selected={selected}
                                         selectEntity={this.selectEntity}
                                         key={i}
+                                        settings={props.settings}
                                     />
                                 );
                             })}
@@ -404,6 +406,7 @@ export default function EntitiesList(): React.ReactElement<
         ),
         locale: useSelector((state) => state[locale.NAME]),
         router: useSelector((state) => state.router),
+        settings :useSelector((state) => state.user.settings)
     };
 
     return (

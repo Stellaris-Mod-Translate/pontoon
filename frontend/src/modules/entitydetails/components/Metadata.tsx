@@ -358,6 +358,7 @@ export default class Metadata extends React.Component<Props, State> {
         const { popupTerms } = this.state;
         const contactPerson = entity.project.contact;
         const showContextIssueButton = user.isAuthenticated && contactPerson;
+        const settings = user.settings;
 
         return (
             <div className='metadata'>
@@ -376,6 +377,7 @@ export default class Metadata extends React.Component<Props, State> {
                     locale={locale}
                     pluralForm={pluralForm}
                     terms={terms}
+                    settings={settings}
                     handleClickOnPlaceable={this.handleClickOnPlaceable}
                 />
                 {popupTerms.length > 0 && (

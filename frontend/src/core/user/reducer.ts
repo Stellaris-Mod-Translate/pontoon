@@ -12,11 +12,13 @@ type Action = ReceiveAction | UpdateAction | UpdateSettingsAction;
 export type SettingsState = {
     readonly runQualityChecks: boolean;
     readonly forceSuggestions: boolean;
+    readonly stellarisFormats: boolean;
 };
 
 const initialSettings: SettingsState = {
     runQualityChecks: true,
     forceSuggestions: true,
+    stellarisFormats: true,
 };
 
 function settings(
@@ -31,6 +33,7 @@ function settings(
             return {
                 runQualityChecks: action.data.settings.quality_checks,
                 forceSuggestions: action.data.settings.force_suggestions,
+                stellarisFormats: action.data.settings.stellaris_formats,
             };
         case UPDATE_SETTINGS:
             return {

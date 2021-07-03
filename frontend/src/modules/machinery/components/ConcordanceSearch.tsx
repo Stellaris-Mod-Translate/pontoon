@@ -15,6 +15,7 @@ export default function ConcordanceSearch(
     props: Props,
 ): React.ReactElement<any> {
     const locale = useSelector((state) => state.locale);
+    const settings = useSelector((state) => state.user.settings);
     const { sourceString, translation } = props;
 
     const createProjectList = () => {
@@ -65,6 +66,7 @@ export default function ConcordanceSearch(
                 <GenericTranslation
                     content={translation.original}
                     search={sourceString}
+                    settings={settings}
                 />
             </p>
             <p
@@ -76,6 +78,7 @@ export default function ConcordanceSearch(
                 <GenericTranslation
                     content={translation.translation}
                     search={sourceString}
+                    settings={settings}
                 />
             </p>
         </>

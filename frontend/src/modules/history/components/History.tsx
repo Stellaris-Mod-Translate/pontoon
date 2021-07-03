@@ -84,6 +84,7 @@ export default class History extends React.Component<Props> {
                                 }
                                 key={index}
                                 index={index}
+                                settings={user.settings}
                             />
                         );
                     })}

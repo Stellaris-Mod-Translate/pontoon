@@ -6,19 +6,26 @@ import shortid from 'shortid';
 import {
     getRulesWithFluent,
     getRulesWithoutLeadingSpace,
+    getRuelsWithStellarisFormat,
     rules,
 } from 'core/placeable';
 
 import type { TermState } from 'core/term';
+import type { Settings } from 'core/user'
 
 export default function getMarker(
     terms: TermState,
     forFluent: boolean = false,
+    settings:Settings={},
 ): any {
     let placeableRules = getRulesWithoutLeadingSpace(rules);
 
     if (forFluent) {
         placeableRules = getRulesWithFluent(placeableRules);
+    }
+
+    if(settings.stellarisFormats){
+        placeableRules = getRuelsWithStellarisFormat(placeableRules);
     }
 
     if (terms.fetching || !terms.terms) {

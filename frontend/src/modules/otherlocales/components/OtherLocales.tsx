@@ -42,6 +42,7 @@ export default class OtherLocales extends React.Component<Props> {
                 translation={translation}
                 parameters={this.props.parameters}
                 key={index}
+                settings={this.props.user.settings}
             />
         );
     }

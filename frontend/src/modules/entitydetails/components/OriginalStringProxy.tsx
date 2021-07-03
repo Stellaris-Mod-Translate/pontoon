@@ -7,12 +7,14 @@ import GenericOriginalString from './GenericOriginalString';
 import type { Entity } from 'core/api';
 import type { Locale } from 'core/locale';
 import type { TermState } from 'core/term';
+import type { Settings } from 'core/user'
 
 type Props = {
     readonly entity: Entity;
     readonly locale: Locale;
     readonly pluralForm: number;
     readonly terms: TermState;
+    readonly settings: Settings;
     readonly handleClickOnPlaceable: (
         event: React.MouseEvent<HTMLParagraphElement>,
     ) => void;
@@ -43,6 +45,7 @@ export default function OriginalStringProxy(
             locale={props.locale}
             pluralForm={props.pluralForm}
             terms={props.terms}
+            settings={props.settings}
             handleClickOnPlaceable={props.handleClickOnPlaceable}
         />
     );

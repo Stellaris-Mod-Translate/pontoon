@@ -37,6 +37,7 @@ export default function Translation(
         entities.selectors.isReadOnlyEditor(state),
     );
     const locale = useSelector((state) => state.locale);
+    const settings = useSelector((state) => state.user.settings);
 
     const copyMachineryTranslation = editor.useCopyMachineryTranslation();
     const copyTranslationIntoEditor = React.useCallback(() => {
@@ -105,6 +106,7 @@ export default function Translation(
                                 <GenericTranslation
                                     content={translation.original}
                                     diffTarget={sourceString}
+                                    settings={settings}
                                 />
                             ) : (
                                 /*
@@ -113,6 +115,7 @@ export default function Translation(
                                  */
                                 <GenericTranslation
                                     content={translation.original}
+                                    settings={settings}
                                 />
                             )}
                         </p>
@@ -124,6 +127,7 @@ export default function Translation(
                         >
                             <GenericTranslation
                                 content={translation.translation}
+                                settings={settings}
                             />
                         </p>
                     </>
