@@ -7,6 +7,7 @@ import replaceNewline from '../parsers/replaceNewline';
 import { Settings } from 'core/user';
 import { rules } from './WithPlaceables';
 import { getRulesWithoutLeadingSpace } from './WithPlaceablesNoLeadingSpace';
+import stellarisIcons from '../parsers/stellarisIcons';
 
 export function getRuelsWithStellarisFormat(rules: Array<Parser>): Array<Parser> {
     const newRules = [replaceNewline, ...rules];
@@ -14,7 +15,8 @@ export function getRuelsWithStellarisFormat(rules: Array<Parser>): Array<Parser>
     let indexAfter = rules.indexOf(multipleSpaces);
 
     newRules.splice(indexAfter, 0, stellarisColors);
-    newRules.splice(++indexAfter, 0, stellarisCodes);
+    newRules.splice(indexAfter++, 0, stellarisCodes);
+    newRules.splice(indexAfter++, 0, stellarisIcons);
 
     return newRules;
 }
@@ -25,6 +27,7 @@ export function getRuelsWithStellarisFormatWithoutColors(rules: Array<Parser>): 
     let indexAfter = rules.indexOf(multipleSpaces);
 
     newRules.splice(indexAfter, 0, stellarisCodes);
+    newRules.splice(indexAfter++, 0, stellarisIcons);
 
     return newRules;
 }
