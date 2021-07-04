@@ -6,6 +6,7 @@ import stellarisCodes from '../parsers/stellarisCodes';
 import replaceNewline from '../parsers/replaceNewline';
 import { Settings } from 'core/user';
 import { rules } from './WithPlaceables';
+import { getRulesWithoutLeadingSpace } from './WithPlaceablesNoLeadingSpace';
 
 export function getRuelsWithStellarisFormat(rules: Array<Parser>): Array<Parser> {
     const newRules = [replaceNewline, ...rules];
@@ -14,6 +15,16 @@ export function getRuelsWithStellarisFormat(rules: Array<Parser>): Array<Parser>
 
     newRules.splice(indexAfter, 0, stellarisColors);
     newRules.splice(++indexAfter, 0, stellarisCodes);
+
+    return newRules;
+}
+
+export function getRuelsWithStellarisFormatWithoutColors(rules: Array<Parser>): Array<Parser> {
+    const newRules = [replaceNewline, ...rules];
+
+    let indexAfter = rules.indexOf(multipleSpaces);
+
+    newRules.splice(indexAfter, 0, stellarisCodes);
 
     return newRules;
 }
@@ -28,3 +39,10 @@ export function getMakrerWithStellaris(settings: Settings): any{
     return createMarker(placeableRules);
 }
 
+const WithPlaceablesForStellarisNestingFormat: any = createMarker(
+    getRuelsWithStellarisFormatWithoutColors(
+            getRulesWithoutLeadingSpace(rules)
+        )
+    );
+
+export default WithPlaceablesForStellarisNestingFormat;

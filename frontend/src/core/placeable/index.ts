@@ -7,8 +7,10 @@ export { getRulesWithFluent } from './components/WithPlaceablesForFluent';
 export { default as WithPlaceablesNoLeadingSpace } from './components/WithPlaceablesNoLeadingSpace';
 export { getRulesWithoutLeadingSpace } from './components/WithPlaceablesNoLeadingSpace';
 
+export { default as WithPlaceablesForStellarisNestingFormat} from './components/WithPlaceablesForStellaris'
 export { getMakrerWithStellaris } from './components/WithPlaceablesForStellaris'
 export { getRuelsWithStellarisFormat } from './components/WithPlaceablesForStellaris'
+export { getRuelsWithStellarisFormatWithoutColors } from './components/WithPlaceablesForStellaris'
 
 export { default as WithPlaceablesForFluentNoLeadingSpace } from './components/WithPlaceablesForFluentNoLeadingSpace';
 
