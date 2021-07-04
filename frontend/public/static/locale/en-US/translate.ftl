@@ -592,7 +592,8 @@ placeable-parser-stellarisColors=
     .title = Stellaris Color Tag
 placeable-parser-stellarisBracketCommand=
     .title = Stellaris Bracket Command
-
+placeable-parser-stellarisCodes=
+    .title = Stellaris Codes
 
 ## Project menu
 ## Used in the project menu in the main navigation bar.

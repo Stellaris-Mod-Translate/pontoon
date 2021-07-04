@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { Localized } from '@fluent/react';
+import stellarisCodes from './stellarisCodes';
+import createMarker from 'react-content-marker';
 
 const colorTag = (x:string)  =>  {
     switch(x)
@@ -21,13 +23,18 @@ const colorTag = (x:string)  =>  {
     }
 };
 
+const stellarisCodeRegex: RegExp = /($.*$)/;
+
 const stellarisColors = {
     rule: /(§[A-Z!][^§]*)/ as RegExp,
     tag: (x: string): React.ReactElement<React.ElementType> => {
+        const content = x.substring(2);
+        const newRuels = [stellarisCodes];
+        const WithStellarisNestingTags = createMarker(newRuels);
         return (
             <Localized id='placeable-parser-stellarisColors' attrs={{ title: true }}>
                 <span style={{color:colorTag(x[1])}}>
-                    {x.substring(2)}
+                  <WithStellarisNestingTags>{content}</WithStellarisNestingTags>
                 </span>
             </Localized>
         );

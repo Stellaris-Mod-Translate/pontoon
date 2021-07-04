@@ -3,7 +3,7 @@ import APIBase from './base';
 const SETTINGS_NAMES_MAP = {
     runQualityChecks: 'quality_checks',
     forceSuggestions: 'force_suggestions',
-    stellarisColors:'stellaris_colors',
+    stellarisFormats:'stellaris_formats',
 };
 
 export default class UserAPI extends APIBase {
