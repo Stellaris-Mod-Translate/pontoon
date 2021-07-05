@@ -111,7 +111,7 @@ def toggle_user_profile_attribute(request, username):
         )
 
     attribute = request.POST.get("attribute", None)
-    if attribute not in ["quality_checks", "force_suggestions"]:
+    if attribute not in ["quality_checks", "force_suggestions", "stellaris_formats"]:
         return JsonResponse(
             {"status": False, "message": "Forbidden: Attribute not allowed"},
             status=403,

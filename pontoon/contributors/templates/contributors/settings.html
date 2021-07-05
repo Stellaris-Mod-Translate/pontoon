@@ -30,6 +30,9 @@
     {% if user.translated_locales %}
       {{ Checkbox.checkbox('Make Suggestions', class='force-suggestions', attribute='force_suggestions', is_enabled=user.profile.force_suggestions, title='번역 저장대신 제안 하기') }}
     {% endif %}
+
+    {{ Checkbox.checkbox('Stellaris Game Formats', class='stellaris-format', attribute='stellaris_formats', is_enabled=user.profile.stellaris_formats, title='스텔라리스의 텍스트 포멧으로 보기') }}
+
   </ul>
 
   <div id="user-preference" class="clearfix">

@@ -848,6 +848,7 @@ def user_data(request):
             "settings": {
                 "quality_checks": user.profile.quality_checks,
                 "force_suggestions": user.profile.force_suggestions,
+                "stellaris_formats": user.profile.stellaris_formats,
             },
             "tour_status": user.profile.tour_status,
             "has_dismissed_addon_promotion": user.profile.has_dismissed_addon_promotion,

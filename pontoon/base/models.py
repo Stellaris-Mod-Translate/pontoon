@@ -1557,6 +1557,7 @@ class UserProfile(models.Model):
     # Other fields here.
     quality_checks = models.BooleanField(default=True)
     force_suggestions = models.BooleanField(default=False)
+    stellaris_formats = models.BooleanField(default=False)
 
     # Used to redirect a user to a custom team page.
     custom_homepage = models.CharField(max_length=20, blank=True, null=True)
