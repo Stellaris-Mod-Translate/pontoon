@@ -15,8 +15,8 @@ export function getRuelsWithStellarisFormat(rules: Array<Parser>): Array<Parser>
     let indexAfter = rules.indexOf(multipleSpaces);
 
     newRules.splice(indexAfter, 0, stellarisColors);
-    newRules.splice(indexAfter++, 0, stellarisCodes);
-    newRules.splice(indexAfter++, 0, stellarisIcons);
+    newRules.splice(++indexAfter, 0, stellarisCodes);
+    newRules.splice(++indexAfter, 0, stellarisIcons);
 
     return newRules;
 }
@@ -27,7 +27,7 @@ export function getRuelsWithStellarisFormatWithoutColors(rules: Array<Parser>): 
     let indexAfter = rules.indexOf(multipleSpaces);
 
     newRules.splice(indexAfter, 0, stellarisCodes);
-    newRules.splice(indexAfter++, 0, stellarisIcons);
+    newRules.splice(++indexAfter, 0, stellarisIcons);
 
     return newRules;
 }
