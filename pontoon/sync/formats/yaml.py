@@ -9,7 +9,7 @@ from pontoon.sync.vcs.models import VCSTranslation
 YAML_REGEX = re.compile('([a-zA-Z0-9_\.]+)\s*:\s*([0-9])*\s*\"(.*)\"|(#.*#*)')
 
 class YamlEntity(VCSTranslation):
-    def __init__(self, key, string, order=0):
+    def __init__(self, key, string, tag, order=0):
         super().__init__(
             key=key,
             source_string=string,
@@ -22,6 +22,7 @@ class YamlEntity(VCSTranslation):
             order=order,
             source=[]
         )
+        self.tag = tag
     
     def __repr__(self):
         return "<YAMLEntity {key} {strings}>".format(key=self.key.encode("utf-8"), strings=self.strings)
@@ -35,7 +36,7 @@ class YamlResource(ParsedResource):
         # Copy entities from the source_resource if it's available.
         if source_resource:
             for key, entity in source_resource.entities.items():
-                self.entities[key] = YamlEntity(entity.key, None, entity.order)
+                self.entities[key] = YamlEntity(entity.key, None, '', entity.order)
 
         try:
             with open(path, 'r', encoding='utf-8')  as f:
@@ -47,12 +48,19 @@ class YamlResource(ParsedResource):
                 raise ParseError(err)
 
         for order, data in enumerate(datas):
+            key, string, tag = '', '', ''
             if data[0] != '':
-                self.entities[data[0]] = YamlEntity(data[0], data[1], order)
-            elif data[2] != '':
-                self.entities[data[2]] = YamlEntity(data[2], data[2], order)
+                key = data[0]
+                tag = data[1]
+                string = data[2]
+            elif data[3] != '':
+                key = data[3]
+                tag = '#'
+                string = data[3]
             else:
-                pass
+                continue
+
+            self.entities[key] = YamlEntity(key, string, tag, order)
             
     @property
     def translations(self):
