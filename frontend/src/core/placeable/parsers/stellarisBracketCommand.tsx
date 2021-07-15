@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Localized } from '@fluent/react';
 
 const stellarisBracketCommand = {
-    rule: /(\[.*\])/ as RegExp,
+    rule: /(\[[\w._0-9]*\])/ as RegExp,
     tag: (x: string): React.ReactElement<React.ElementType> => {
         return (
             <Localized
