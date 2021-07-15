@@ -90,7 +90,21 @@ export default class Metadata extends React.Component<Props, State> {
             } else if (target.firstChild) {
                 const child = target.firstChild;
                 if (child instanceof Text) {
-                    this.props.addTextToEditorTranslation(child.data);
+                    if(this.props.user.settings.stellarisFormats){
+                        const original = this.props.entity.original;
+                        const index = original.indexOf(child.data);
+                        const subString = original.substr(index-2);
+                        if(index > 2 && subString[0] == '§'){
+                            const endIndex = subString.indexOf('§!');
+                            this.props.addTextToEditorTranslation(subString.substr(0, endIndex + 2));
+                        }
+                        else{
+                            this.props.addTextToEditorTranslation(child.data);
+                        }
+                    }
+                    else{
+                        this.props.addTextToEditorTranslation(child.data);
+                    }
                 }
             }
         }
