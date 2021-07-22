@@ -520,7 +520,7 @@ class VCSProject:
         formats that only used for source strings.
         """
         source_repository = self.db_project.source_repository
-
+        
         # If project configuration provided, files could be stored in multiple
         # directories, so we just use the source repository checkout path
         if self.configuration:
@@ -545,8 +545,12 @@ class VCSProject:
                         ):
                             score += 3
 
-                        possible_sources.append((directory_path, score))
+                        # permalink_prefix가 폴더 이름과 같으면 점수 100점!
+                        if root.split("/")[-1] == source_repository.permalink_prefix:
+                            score += 100
 
+                        possible_sources.append((directory_path, score))
+                        
         if possible_sources:
             return max(possible_sources, key=lambda s: s[1])[0]
         else:
