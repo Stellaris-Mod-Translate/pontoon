@@ -212,12 +212,7 @@
   </h3>
 
   <div class="clearfix">
-    <input id="id_configuration_file" name="설정 파일" type="text" placeholder="l10n.toml" value="{{ form.configuration_file.value() or '' }}">
-    <label for="id_configuration_file">
-      {{ form.configuration_file.help_text|trim }}
-      <a href="https://moz-l10n-config.readthedocs.io/en/latest/fileformat.html" target="_blank">더 알아보기.</a>
-    </label>
-    {{ form.configuration_file.errors }}
+    {{ form.configuration_file }}
   </div>
 
   <h3>프로젝트 정보<span class="small stress">(옵션)</span></h3>
